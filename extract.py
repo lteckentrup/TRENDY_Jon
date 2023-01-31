@@ -27,6 +27,5 @@ def grab_site_data(DGVM,var):
             
         ds_site.to_netcdf(fileOUT, encoding = encoding)
 
-
 ### Grab data
 grab_site_data(args.DGVM,args.var)
