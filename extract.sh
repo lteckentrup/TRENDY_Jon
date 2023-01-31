@@ -1,10 +1,10 @@
 # Read CSV file with site locations
 mapfile -t site_lat_lon < ../sitelocations.csv
 
-# Set DGVM from command line argument
+# Set DGVM from command line
 DGVM=$1
 
-# Set var from command line argument
+# Set var from command line
 var=$2
 
 # Split each line of CSV into site name, lat, lon
