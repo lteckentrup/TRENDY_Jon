@@ -23,7 +23,7 @@ def grab_site_data(DGVM,var):
     ### Loop through all sites and write to separate netCDF
     for site,lat,lon in zip(df_sites.Site,df_sites.lat,df_sites.lon):
         ds_site = ds.sel(latitude=lat,longitude=lon,method='nearest')
-        fileOUT = var+'_test/'+DGVM+'_S3_'+var+'.nc'
+        fileOUT = var+'_test/'+DGVM+'_S3_'+site+'.nc'
             
         ds_site.to_netcdf(fileOUT, encoding = encoding)
 
