@@ -2,7 +2,9 @@
 mapfile -t site_lat_lon < ../sitelocations.csv
 
 # Split each line of CSV into site name, lat, lon
-for line in "${site_lat_lon[@]}"; do
+# Ignore first line (column names)
+
+for line in "${site_lat_lon[@]:1}"; do
     site=$(echo $line | cut -d, -f1)
     lat=$(echo $line | cut -d, -f2 | bc)
     lon=$(echo $line | cut -d, -f3 | bc)
