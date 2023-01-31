@@ -1,11 +1,11 @@
 # Read CSV file with site locations
 mapfile -t site_lat_lon < ../sitelocations.csv
 
-# Set DGVM
-DGVM='CABLE-POP'
+# Set DGVM from command line argument
+DGVM=$1
 
-# Set var
-var='evapo'
+# Set var from command line argument
+var=$2
 
 # Split each line of CSV into site name, lat, lon
 # Ignore first line (column names)
@@ -13,7 +13,7 @@ for line in "${site_lat_lon[@]:1}"; do
     site=$(echo $line | cut -d, -f1)
     lat=$(echo $line | cut -d, -f2 | bc)
     lon=$(echo $line | cut -d, -f3 | bc)
-    
+
     # Extract coords
     echo ${site}
     echo ${lat}
