@@ -17,7 +17,8 @@ for line in "${site_lat_lon[@]:1}"; do
     site=$(echo $line | cut -d, -f1)
     lat=$(echo $line | cut -d, -f2 | bc)
     lon=$(echo $line | cut -d, -f3 | bc)
-
+    
+    ### Can set to 32 to speed up
     seq 1980 2018 | xargs -n 1 -I {} -P 8 bash -c \
         "year={}; cdo -L -b F64 -chunit,'mm/6h','kg/m^2/s' -chname,${var_cru},${var_DGVM} -mon${var_agg} \
             -divc,86400 -daysum -selvar,${var_cru} -remapnn,lon=${lon}_lat=${lat} \
