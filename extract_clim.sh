@@ -33,3 +33,4 @@ cdo -L -b F64 -mergetime ${var_DGVM}/*${site}* ${var_DGVM}/CRUJRA_S3_${site}.nc
 
 for line in "${site_lat_lon[@]:1}"; do
     rm ${var_DGVM}/*_${site}_*
+done
